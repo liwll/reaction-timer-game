@@ -1,6 +1,6 @@
 <template>
   <h1>Reaction Timer</h1>
-  <button @click="start" :disabled="isPlaying">Play</button>
+  <div class="play-area" v-if="!isPlaying" @click="start" :disabled="isPlaying">Click To Start</div>
   <Block v-if="isPlaying" :delay="delay" @stop="showResults" />
   <Results v-if="donePlaying" :reactionTime="reactionTime"/>
 </template>
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     start() {
-      this.delay = 3000 + Math.random() * 7000;
+      this.delay =  7000 + Math.random() * 3000;
       this.isPlaying = true;
       this.donePlaying = false;
     },
